@@ -227,8 +227,7 @@ document.addEventListener('click',async e=>{
  if(b.dataset.downloadDoc){const doc=await get('documents',b.dataset.downloadDoc);if(doc)download(doc.blob,doc.name);}
  if(b.dataset.delDoc){if(confirm('Delete this document?')){await del('documents',b.dataset.delDoc);await showProperty(activeProperty);}}
 });
-document.addEventListener('click',e=>{const b=e.target.closest('button[data-page]');if(b){page=b.dataset.page;render();}});
-document.addEventListener('click',e=>{const b=e.target.closest('button[data-del-t]');if(b)e.stopPropagation();});
+
 (async()=>{
  try{db=await openDB();window.openingBalance=num(await setting('openingBalance',0));if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});await render();
  if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
