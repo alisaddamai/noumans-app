@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#102b3f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Nouman's App">
+<meta name="description" content="Private offline personal finance and property records for Nouman.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon.svg">
+<title>Nouman's App</title>
+<style>
+:root{color-scheme:light;--navy:#102b3f;--navy2:#173e54;--teal:#0d8278;--mint:#e6f5f1;--paper:#f4f7f8;--ink:#172b38;--muted:#71808a;--line:#e1e8eb;--white:#fff;--red:#bd4d4d;--gold:#b98229;--shadow:0 12px 32px rgba(19,48,65,.08)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper)}body{padding-bottom:calc(78px + env(safe-area-inset-bottom))}button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{max-width:1280px;margin:auto;padding:20px 24px}.top{background:var(--navy);color:#fff;padding:calc(14px + env(safe-area-inset-top)) 24px 16px}.topin{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px}.logo{height:45px;width:45px;border-radius:14px;background:#fff;color:var(--navy);display:grid;place-items:center;font-weight:900;font-size:24px;letter-spacing:-2px}.brand h1{font-size:18px;line-height:1.1;margin:0}.brand small{display:block;color:#b8cbd4;font-size:11px;margin-top:4px}.topright{font-size:12px;color:#c9d9df;text-align:right}.tabs{display:flex;gap:7px;max-width:1280px;margin:18px auto 0}.tab{border:0;color:#d4e0e5;background:transparent;border-radius:9px;padding:10px 15px;font-weight:650}.tab.active{background:#ffffff1b;color:white}.pagehead{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin:10px 0 22px}.pagehead h2{margin:0;font-size:25px;letter-spacing:-.6px}.sub{color:var(--muted);font-size:13px;margin-top:6px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:700;background:var(--navy);color:white}.btn.teal{background:var(--teal)}.btn.light{background:#e9f0f2;color:var(--navy)}.btn.danger{background:#fff0f0;color:var(--red)}.btn.small{font-size:12px;padding:8px 10px}.btn:disabled{opacity:.45;cursor:not-allowed}.grid{display:grid;gap:15px}.stats{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 2px 8px rgba(10,37,52,.025)}.statlabel{font-size:12px;color:var(--muted);font-weight:650}.statvalue{font-size:25px;font-weight:800;letter-spacing:-.7px;margin-top:10px;overflow-wrap:anywhere}.statnote{font-size:11px;color:var(--muted);margin-top:5px}.sectiontitle{font-size:16px;margin:0 0 13px}.twocol{grid-template-columns:1.1fr .9fr;margin-top:16px}.list{display:flex;flex-direction:column;gap:0}.listrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.listrow:last-child{border:0}.muted{color:var(--muted)}.amount{font-weight:750;font-variant-numeric:tabular-nums}.positive{color:#16846d}.negative{color:var(--red)}.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label{font-size:12px;color:#586a75;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid #dce5e8;border-radius:9px;padding:11px 12px;background:white;color:var(--ink);outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px #0d827815}.field textarea{min-height:76px;resize:vertical}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.full{grid-column:1/-1}.tablewrap{background:white;border:1px solid var(--line);border-radius:14px;overflow:auto}.data{width:100%;border-collapse:collapse;min-width:720px}.data th{text-align:left;color:#73838c;font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:#f8fafb;padding:13px 14px;white-space:nowrap}.data td{padding:14px;border-top:1px solid var(--line);font-size:13px}.data tr:hover td{background:#fbfdfd}.pill{display:inline-block;border-radius:50px;padding:5px 8px;font-size:10px;font-weight:750;background:#edf3f5;color:#526873}.pill.good{background:#e5f5ef;color:#16765f}.pill.warn{background:#fff3dd;color:#98681e}.pill.bad{background:#fff0f0;color:#a83c3c}.empty{text-align:center;padding:38px 16px;color:var(--muted);font-size:13px}.empty b{display:block;color:var(--ink);margin-bottom:5px}.panel{display:flex;flex-direction:column;gap:12px}.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:13px}.filters input,.filters select{padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:white;color:var(--ink)}.modalback{position:fixed;inset:0;background:#0c1d28a6;z-index:20;display:flex;align-items:flex-end;justify-content:center;padding:12px}.modal{background:white;border-radius:20px 20px 14px 14px;width:min(680px,100%);max-height:92dvh;overflow:auto;box-shadow:var(--shadow);padding:22px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modalhead h3{margin:0;font-size:19px}.xbtn{border:0;border-radius:50%;width:34px;height:34px;background:#eff3f4;font-size:20px}.actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px;flex-wrap:wrap}.notice{background:#edf5f7;border:1px solid #d9e7eb;border-radius:12px;padding:12px 14px;font-size:12px;color:#4e6570;line-height:1.55}.subnav{display:flex;gap:8px;margin:0 0 15px;flex-wrap:wrap}.subnav button{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;color:#566c76;font-weight:650;font-size:12px}.subnav button.active{background:var(--navy);color:white;border-color:var(--navy)}.detailtop{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;flex-wrap:wrap}.detailtop h3{margin:0;font-size:19px}.smalltext{font-size:11px;color:var(--muted)}.document{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border:1px solid var(--line);border-radius:10px;margin-top:8px;font-size:12px}.mobilebar{display:none}.footer{text-align:center;color:#99a5aa;font-size:11px;padding:25px 0 8px}.hidden{display:none!important}
+@media(max-width:800px){.shell{padding:16px}.top{padding-left:17px;padding-right:17px}.topright{display:none}.tabs{overflow:auto;margin-top:12px}.tab{white-space:nowrap;padding:9px 12px;font-size:12px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.statvalue{font-size:20px}.twocol{grid-template-columns:1fr}.pagehead h2{font-size:22px}.pagehead{align-items:flex-start}.pagehead .btn{white-space:nowrap}.mobilebar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:8px 9px calc(8px + env(safe-area-inset-bottom));justify-content:space-around;z-index:10}.mobilebar button{border:0;background:transparent;color:#72818a;font-size:10px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:60px;padding:5px}.mobilebar button.active{color:var(--teal)}.mobilebar span{font-size:18px}.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.modalback{padding:0;align-items:flex-end}.modal{border-radius:20px 20px 0 0;max-height:94dvh;padding:19px 16px calc(18px + env(safe-area-inset-bottom))}.data{min-width:690px}.pagehead{gap:10px}.pagehead .btn{padding:10px 11px;font-size:12px}}
+@media print{body{background:white;padding:0}.top,.tabs,.mobilebar,.no-print,.footer{display:none!important}.shell{max-width:none;padding:0}.card,.tablewrap{box-shadow:none;border:1px solid #ddd}.print-only{display:block!important}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="topin">
+  <div class="brand"><div class="logo">N</div><div><h1>Nouman's App</h1><small>Developed by Humam and Co.</small></div></div>
+  <div class="topright"><div id="todayLabel"></div><div>Private records on this device</div></div>
+ </div>
+ <nav class="tabs" id="tabs">
+  <button class="tab active" data-page="home">Overview</button><button class="tab" data-page="cash">Personal finance</button><button class="tab" data-page="properties">Property records</button><button class="tab" data-page="backup">Backup & settings</button>
+ </nav>
+</header>
+<main class="shell" id="app"></main>
+<nav class="mobilebar" id="mobilebar">
+ <button class="active" data-page="home"><span>⌂</span>Home</button>
+ <button data-page="cash"><span>↕</span>Cashbook</button>
+ <button data-page="properties"><span>⌂</span>Properties</button>
+ <button data-page="backup"><span>⚙</span>Backup</button>
+</nav>
+<div id="modalRoot"></div>
+<script>
+(function(){
+'use strict';
+const DB_NAME='noumans-app-local-v1', DB_VERSION=1;
+const STORES=['transactions','properties','payments','documents','settings'];
+let db, page='home', cashFilter='all', propertyFilter='all', activeProperty=null;
+const $=s=>document.querySelector(s);
+const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const today=()=>new Date().toLocaleDateString('en-CA');
+const money=n=>new Intl.NumberFormat('en-PK',{style:'currency',currency:'PKR',maximumFractionDigits:0}).format(Number(n||0));
+const id=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+const dateLabel=d=>d?new Date(d+'T12:00:00').toLocaleDateString('en-PK',{day:'2-digit',month:'short',year:'numeric'}):'';
+const num=n=>Number(n||0);
+function openDB(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,DB_VERSION);r.onupgradeneeded=()=>{const d=r.result;STORES.forEach(s=>{if(!d.objectStoreNames.contains(s))d.createObjectStore(s,{keyPath:'id'});});};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+function req(store,mode,fn){return new Promise((resolve,reject)=>{const tx=db.transaction(store,mode),st=tx.objectStore(store);let r;try{r=fn(st);}catch(e){reject(e);return;}r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+const all=s=>req(s,'readonly',st=>st.getAll());
+const get=(s,key)=>req(s,'readonly',st=>st.get(key));
+const put=(s,obj)=>req(s,'readwrite',st=>st.put(obj));
+const del=(s,key)=>req(s,'readwrite',st=>st.delete(key));
+async function setting(key,def){const r=await get('settings',key);return r?r.value:def;}
+async function setSetting(key,value){return put('settings',{id:key,value});}
+function sum(list,fn){return list.reduce((a,x)=>a+fn(x),0);}
+async function data(){const [transactions,properties,payments,documents]=await Promise.all(['transactions','properties','payments','documents'].map(all));return{transactions,properties,payments,documents};}
+function balanceAt(transactions,date){const open=num(window.openingBalance||0);return open+sum(transactions.filter(t=>t.date<=date),t=>t.type==='income'?num(t.amount):-num(t.amount));}
+async function render(){
+ const d=await data();window.cache=d;
+ $('#todayLabel').textContent=new Date().toLocaleDateString('en-PK',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
+ document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+ if(page==='home')renderHome(d);if(page==='cash')renderCash(d);if(page==='properties')renderProperties(d);if(page==='backup')renderBackup(d);
+}
+function head(title,sub,btn,action){return '<div class="pagehead"><div><h2>'+title+'</h2><div class="sub">'+sub+'</div></div>'+(btn?'<button class="btn teal" data-action="'+action+'">'+btn+'</button>':'')+'</div>';}
+function stat(label,value,note,cls){return '<div class="card"><div class="statlabel">'+label+'</div><div class="statvalue '+(cls||'')+'">'+value+'</div><div class="statnote">'+note+'</div></div>';}
+function empty(title,desc){return '<div class="empty"><b>'+title+'</b>'+desc+'</div>';}
+function renderHome(d){
+ const todays=d.transactions.filter(t=>t.date===today()),income=sum(todays.filter(t=>t.type==='income'),t=>num(t.amount)),expense=sum(todays.filter(t=>t.type==='expense'),t=>num(t.amount));
+ const receivable=sum(d.properties.filter(p=>p.status!=='closed'),p=>Math.max(0,num(p.total)-sum(d.payments.filter(x=>x.propertyId===p.id),x=>num(x.amount))));
+ const outstanding=d.properties.filter(p=>p.status!=='closed').length;
+ const current=balanceAt(d.transactions,today());
+ const recent=d.transactions.slice().sort((a,b)=>(b.date+b.id).localeCompare(a.date+a.id)).slice(0,6);
+ const upcoming=d.properties.flatMap(p=>(p.schedule||[]).filter(s=>s.date>=today()&&!s.paid).map(s=>({p,s}))).sort((a,b)=>a.s.date.localeCompare(b.s.date)).slice(0,5);
+ $('#app').innerHTML=head('Overview','A clear view of Nouman’s money and property work','+ Add entry','transaction')+
+ '<div class="grid stats">'+stat('Current personal balance',money(current),'Opening balance plus all personal entries')+stat('Income today',money(income),'Personal income recorded today','positive')+stat('Expenses today',money(expense),'Personal expenses recorded today','negative')+stat('Property receivable',money(receivable),outstanding+' active client records')+'</div>'+
+ '<div class="grid twocol"><section class="card"><h3 class="sectiontitle">Recent personal entries</h3><div class="list">'+(recent.length?recent.map(t=>'<div class="listrow"><div><b>'+esc(t.title||t.category)+'</b><div class="smalltext">'+dateLabel(t.date)+' · '+esc(t.method||'')+'</div></div><div class="amount '+(t.type==='income'?'positive':'negative')+'">'+(t.type==='income'?'+':'−')+money(t.amount)+'</div></div>').join(''):empty('No entries yet','Add the first income or expense.'))+'</div><button class="btn light small" data-page="cash">Open personal ledger</button></section>'+
+ '<section class="card"><h3 class="sectiontitle">Upcoming instalments</h3><div class="list">'+(upcoming.length?upcoming.map(x=>'<div class="listrow"><div><b>'+esc(x.p.client)+'</b><div class="smalltext">'+esc(x.p.project||x.p.unit||'Property')+' · '+dateLabel(x.s.date)+'</div></div><div class="amount">'+money(x.s.amount)+'</div></div>').join(''):empty('No upcoming instalments','Add a payment plan to a property record.'))+'</div><button class="btn light small" data-page="properties">Open property records</button></section></div>'+
+ '<div class="footer">Nouman’s App · Developed by Humam and Co. · Stored locally on this device</div>';
+}
+function renderCash(d){
+ const rows=d.transactions.filter(t=>cashFilter==='all'||t.type===cashFilter).sort((a,b)=>(b.date+b.id).localeCompare(a.date+a.id));
+ const incomes=sum(d.transactions.filter(t=>t.type==='income'),t=>num(t.amount)),expenses=sum(d.transactions.filter(t=>t.type==='expense'),t=>num(t.amount));
+ $('#app').innerHTML=head('Personal finance','Record every personal payment in and out','+ New entry','transaction')+
+ '<div class="grid stats">'+stat('Total income',money(incomes),'All recorded personal income','positive')+stat('Total expenses',money(expenses),'All recorded personal expenses','negative')+stat('Net movement',money(incomes-expenses),'Income less expenses')+stat('Today closing balance',money(balanceAt(d.transactions,today())),'Calculated automatically')+'</div>'+
+ '<section class="card" style="margin-top:16px"><div class="toolbar" style="justify-content:space-between;margin-bottom:13px"><h3 class="sectiontitle" style="margin:0">Daily cashbook</h3><button class="btn light small" data-action="print-cash">Print / PDF</button></div>'+
+ '<div class="filters"><select id="cashFilter"><option value="all">All entries</option><option value="income">Income only</option><option value="expense">Expenses only</option></select><input id="cashDate" type="date" value="'+today()+'"><button class="btn light small" data-action="daily-close">Daily closing</button></div>'+
+ '<div class="notice" id="dailySummary">Choose a date to view opening and closing balances.</div></section>'+
+ '<section class="card" style="margin-top:15px"><h3 class="sectiontitle">All entries</h3><div class="tablewrap"><table class="data"><thead><tr><th>Date</th><th>Type</th><th>Description</th><th>Paid by / to</th><th>Method</th><th>Amount</th><th></th></tr></thead><tbody>'+
+ (rows.length?rows.map(t=>'<tr><td>'+dateLabel(t.date)+'</td><td><span class="pill '+(t.type==='income'?'good':'warn')+'">'+t.type+'</span></td><td><b>'+esc(t.title||t.category)+'</b><div class="smalltext">'+esc(t.category||'')+'</div></td><td>'+esc(t.person||'')+'</td><td>'+esc(t.method||'')+'</td><td class="amount '+(t.type==='income'?'positive':'negative')+'">'+money(t.amount)+'</td><td><button class="btn light small" data-edit-t="'+t.id+'">Edit</button> <button class="btn danger small" data-del-t="'+t.id+'">×</button></td></tr>').join(''):'<tr><td colspan="7">'+empty('No entries found','Create a personal income or expense entry.')+'</td></tr>')+
+ '</tbody></table></div></section><div class="footer">Property client receipts are kept separate unless specifically copied to personal income.</div>';
+ $('#cashFilter').value=cashFilter;
+ updateDailySummary(d,today());
+ $('#cashFilter').onchange=e=>{cashFilter=e.target.value;render();};
+ $('#cashDate').onchange=e=>updateDailySummary(d,e.target.value);
+}
+function updateDailySummary(d,date){
+ const before=d.transactions.filter(t=>t.date<date),during=d.transactions.filter(t=>t.date===date);
+ const open=num(window.openingBalance||0)+sum(before,t=>t.type==='income'?num(t.amount):-num(t.amount));
+ const inc=sum(during.filter(t=>t.type==='income'),t=>num(t.amount)),out=sum(during.filter(t=>t.type==='expense'),t=>num(t.amount));
+ const box=$('#dailySummary');if(box)box.innerHTML='<b>'+dateLabel(date)+'</b> &nbsp; Opening: <b>'+money(open)+'</b> &nbsp; Income: <b class="positive">'+money(inc)+'</b> &nbsp; Expenses: <b class="negative">'+money(out)+'</b> &nbsp; Closing: <b>'+money(open+inc-out)+'</b>';
+}
+function paidFor(d,p){return sum(d.payments.filter(x=>x.propertyId===p.id),x=>num(x.amount));}
+function renderProperties(d){
+ const rows=d.properties.filter(p=>propertyFilter==='all'||(propertyFilter==='active'?p.status!=='closed':p.status==='closed'));
+ $('#app').innerHTML=head('Property records','Buyers, bookings, payment plans and documents','+ Add client','property')+
+ '<div class="grid stats">'+stat('Client records',d.properties.length,'All property files')+stat('Total property value',money(sum(d.properties,p=>num(p.total))),'All entered sale values')+stat('Payments received',money(sum(d.payments,p=>num(p.amount))),'Receipts against properties')+stat('Outstanding balance',money(sum(d.properties.filter(p=>p.status!=='closed'),p=>Math.max(0,num(p.total)-paidFor(d,p)))),'Across active records')+'</div>'+
+ '<section class="card" style="margin-top:16px"><div class="toolbar" style="justify-content:space-between;margin-bottom:13px"><h3 class="sectiontitle" style="margin:0">Client register</h3><select id="propertyFilter" style="padding:8px;border:1px solid var(--line);border-radius:9px"><option value="all">All records</option><option value="active">Active</option><option value="closed">Closed</option></select></div>'+
+ '<div class="tablewrap"><table class="data"><thead><tr><th>Client</th><th>Property / project</th><th>Total amount</th><th>Received</th><th>Remaining</th><th>Status</th><th></th></tr></thead><tbody>'+
+ (rows.length?rows.map(p=>{const paid=paidFor(d,p),remaining=Math.max(0,num(p.total)-paid);return '<tr><td><b>'+esc(p.client)+'</b><div class="smalltext">'+esc(p.phone||'')+'</div></td><td>'+esc(p.unit||p.project||'')+'<div class="smalltext">'+esc(p.location||'')+'</div></td><td>'+money(p.total)+'</td><td class="positive amount">'+money(paid)+'</td><td class="amount">'+money(remaining)+'</td><td><span class="pill '+(p.status==='closed'?'good':'warn')+'">'+esc(p.status||'active')+'</span></td><td><button class="btn light small" data-view-p="'+p.id+'">Open</button></td></tr>';}).join(''):'<tr><td colspan="7">'+empty('No property records','Add a buyer or client to start a property file.')+'</td></tr>')+
+ '</tbody></table></div></section><div class="footer">Receipts against properties are recorded in the client ledger, separately from personal income.</div>';
+ $('#propertyFilter').value=propertyFilter;$('#propertyFilter').onchange=e=>{propertyFilter=e.target.value;render();};
+}
+function renderBackup(d){
+ $('#app').innerHTML=head('Backup & settings','Manage local data, opening balance and app information')+
+ '<div class="grid twocol"><section class="card"><h3 class="sectiontitle">Opening personal balance</h3><div class="sub" style="margin:0 0 14px">Enter the cash and bank balance available when Nouman starts using this app. This is used to calculate daily closing balances.</div><div class="field"><label>Starting balance (PKR)</label><input id="openingBalance" type="number" min="0" step="1" value="'+num(window.openingBalance||0)+'"></div><div class="actions"><button class="btn teal" data-action="save-opening">Save opening balance</button></div></section>'+
+ '<section class="card"><h3 class="sectiontitle">Local storage status</h3><div class="notice">Records and uploaded documents are stored in this browser on this device. No account or cloud service is used. The app works offline after its first successful load.</div><p class="smalltext" id="storageStatus">Checking local storage…</p><button class="btn light small" data-action="persist">Request protected storage</button></section>'+
+ '<section class="card"><h3 class="sectiontitle">Export complete backup</h3><p class="sub">Download a backup file containing every transaction, property, payment plan and attached document. Keep a copy somewhere safe.</p><button class="btn teal" data-action="export">Download backup file</button></section>'+
+ '<section class="card"><h3 class="sectiontitle">Restore a backup</h3><p class="sub">Restore a previous backup on this iPhone or another device. Restoring replaces the current app records.</p><input id="importFile" type="file" accept=".json,application/json"><div class="actions"><button class="btn light" data-action="import">Restore selected backup</button></div></section></div>'+
+ '<section class="card" style="margin-top:15px"><h3 class="sectiontitle">Important privacy and transfer notes</h3><p class="sub">This app does not sync records between phones automatically. Use Export on the old phone and Restore on the new phone. Do not clear Safari website data before making a backup. A backup can contain private financial details and client property documents, so protect the file.</p><p class="smalltext">Nouman's App · Developed by Humam and Co. · Version 1.0</p></section><div class="footer">Your records belong to you. Make regular backups.</div>';
+ if(navigator.storage&&navigator.storage.estimate)navigator.storage.estimate().then(x=>{const el=$('#storageStatus');if(el)el.textContent='Approximate storage used: '+Math.round((x.usage||0)/1024/1024*10)/10+' MB';});
+}
+function modal(title,body){$('#modalRoot').innerHTML='<div class="modalback" id="modalBack"><div class="modal"><div class="modalhead"><h3>'+title+'</h3><button class="xbtn" data-action="close">×</button></div>'+body+'</div></div>';$('#modalBack').addEventListener('click',e=>{if(e.target.id==='modalBack')closeModal();});}
+function closeModal(){$('#modalRoot').innerHTML='';}
+function transactionForm(existing){
+ const t=existing||{type:'income',date:today(),method:'Cash',category:'Other'};
+ modal(existing?'Edit entry':'New personal entry','<form id="transactionForm"><div class="formgrid">'+
+ '<div class="field"><label>Entry type</label><select name="type"><option value="income">Money received</option><option value="expense">Money spent</option></select></div>'+
+ '<div class="field"><label>Date</label><input name="date" type="date" required></div>'+
+ '<div class="field"><label>Amount (PKR)</label><input name="amount" type="number" min="1" step="1" required></div>'+
+ '<div class="field"><label>Category</label><select name="category"><option>Salary</option><option>Commission</option><option>Business income</option><option>Rent</option><option>Food</option><option>Transport</option><option>Utilities</option><option>Household</option><option>Medical</option><option>Shopping</option><option>Other</option></select></div>'+
+ '<div class="field"><label>Payment method</label><select name="method"><option>Cash</option><option>Bank transfer</option><option>EasyPaisa</option><option>JazzCash</option><option>Cheque</option><option>Card</option><option>Other</option></select></div>'+
+ '<div class="field"><label>Account / reference</label><input name="account" placeholder="Bank, wallet or reference"></div>'+
+ '<div class="field"><label>Paid by / paid to</label><input name="person" placeholder="Name"></div>'+
+ '<div class="field"><label>Title</label><input name="title" placeholder="Short description"></div>'+
+ '<div class="field full"><label>Notes</label><textarea name="notes" placeholder="Optional details"></textarea></div></div>'+
+ '<div class="actions"><button type="button" class="btn light" data-action="close">Cancel</button><button class="btn teal" type="submit">Save entry</button></div></form>');
+ const f=$('#transactionForm');f.elements.type.value=t.type;f.elements.date.value=t.date;f.elements.amount.value=t.amount||'';f.elements.category.value=t.category||'Other';f.elements.method.value=t.method||'Cash';f.elements.account.value=t.account||'';f.elements.person.value=t.person||'';f.elements.title.value=t.title||'';f.elements.notes.value=t.notes||'';
+ f.onsubmit=async e=>{e.preventDefault();const o=Object.fromEntries(new FormData(f));o.id=existing?existing.id:id();o.amount=num(o.amount);await put('transactions',o);closeModal();await render();};
+}
+function propertyForm(existing){
+ const p=existing||{status:'active'};
+ modal(existing?'Edit client record':'New property client','<form id="propertyForm"><div class="formgrid">'+
+ '<div class="field"><label>Client / buyer name</label><input name="client" required></div><div class="field"><label>Phone number</label><input name="phone" type="tel"></div>'+
+ '<div class="field"><label>Project / society</label><input name="project"></div><div class="field"><label>Plot / unit / property</label><input name="unit"></div>'+
+ '<div class="field"><label>Location</label><input name="location"></div><div class="field"><label>Total agreed amount (PKR)</label><input name="total" type="number" min="0" required></div>'+
+ '<div class="field"><label>Booking amount (PKR)</label><input name="booking" type="number" min="0" value="0"></div><div class="field"><label>Down payment (PKR)</label><input name="downPayment" type="number" min="0" value="0"></div>'+
+ '<div class="field"><label>Booking / first payment date</label><input name="startDate" type="date" value="'+today()+'"></div><div class="field"><label>Record status</label><select name="status"><option value="active">Active</option><option value="closed">Closed</option></select></div>'+
+ '<div class="field full"><label>Payment plan (one instalment per line: YYYY-MM-DD, amount)</label><textarea name="scheduleText" placeholder="2026-12-01, 100000&#10;2027-01-01, 100000"></textarea></div>'+
+ '<div class="field full"><label>Notes / agreement details</label><textarea name="notes"></textarea></div></div>'+
+ (existing?'':'<div class="notice" style="margin-top:13px">Booking and down payment values are added as property receipts. They are not automatically counted as Nouman’s personal income.</div>')+
+ '<div class="actions"><button type="button" class="btn light" data-action="close">Cancel</button><button class="btn teal" type="submit">Save client record</button></div></form>');
+ const f=$('#propertyForm');['client','phone','project','unit','location','total','booking','downPayment','startDate','status','notes'].forEach(k=>{if(f.elements[k])f.elements[k].value=p[k]??(k==='startDate'?today():k==='status'?'active':k==='booking'||k==='downPayment'?0:'');});
+ f.elements.scheduleText.value=(p.schedule||[]).map(s=>s.date+', '+s.amount).join('\n');
+ f.onsubmit=async e=>{e.preventDefault();const o=Object.fromEntries(new FormData(f));const schedule=o.scheduleText.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).map(line=>{const a=line.split(',');return{date:(a[0]||'').trim(),amount:num(a[1]),paid:false};}).filter(s=>/^\d{4}-\d{2}-\d{2}$/.test(s.date)&&s.amount>0);const prop={...p,...o,id:existing?p.id:id(),total:num(o.total),booking:num(o.booking),downPayment:num(o.downPayment),schedule,status:o.status};delete prop.scheduleText;await put('properties',prop);if(!existing){if(prop.booking>0)await put('payments',{id:id(),propertyId:prop.id,amount:prop.booking,date:prop.startDate||today(),method:'Cash',note:'Booking amount'});if(prop.downPayment>0)await put('payments',{id:id(),propertyId:prop.id,amount:prop.downPayment,date:prop.startDate||today(),method:'Cash',note:'Down payment'});}closeModal();activeProperty=prop.id;page='properties';await render();await showProperty(prop.id);};
+}
+async function showProperty(pid){
+ const d=await data(),p=d.properties.find(x=>x.id===pid);if(!p)return;activeProperty=pid;
+ const payments=d.payments.filter(x=>x.propertyId===pid).sort((a,b)=>a.date.localeCompare(b.date)),paid=paidFor(d,p),remaining=Math.max(0,num(p.total)-paid),docs=d.documents.filter(x=>x.propertyId===pid);
+ $('#app').innerHTML='<div class="pagehead"><div><button class="btn light small" data-action="back-properties">← All properties</button><h2 style="margin-top:13px">'+esc(p.client)+'</h2><div class="sub">'+esc(p.project||'')+' · '+esc(p.unit||'')+'</div></div><div class="toolbar"><button class="btn light" data-action="edit-property">Edit</button><button class="btn light" data-action="print-property">Print / PDF</button><button class="btn teal" data-action="receive-payment">+ Receive payment</button></div></div>'+
+ '<div class="grid stats">'+stat('Agreed total',money(p.total),'Property sale value')+stat('Received',money(paid),'All recorded property receipts','positive')+stat('Remaining',money(remaining),'Agreed value less receipts')+stat('Client contact',esc(p.phone||'Not entered'),esc(p.location||''))+'</div>'+
+ '<div class="grid twocol"><section class="card"><h3 class="sectiontitle">Client and property details</h3><div class="list">'+[['Client',p.client],['Phone',p.phone],['Project',p.project],['Plot / unit',p.unit],['Location',p.location],['Booking amount',money(p.booking)],['Down payment',money(p.downPayment)],['Status',p.status],['Notes',p.notes]].map(x=>'<div class="listrow"><span class="muted">'+x[0]+'</span><b style="text-align:right">'+esc(x[1]||'Not entered')+'</b></div>').join('')+'</div></section>'+
+ '<section class="card"><h3 class="sectiontitle">Payment plan</h3><div class="list">'+((p.schedule||[]).length?p.schedule.map(s=>'<div class="listrow"><div>'+dateLabel(s.date)+'<div class="smalltext">'+(s.paid?'Marked paid':'Scheduled')+'</div></div><b>'+money(s.amount)+'</b></div>').join(''):empty('No payment plan','Add instalments by editing this property record.'))+'</div></section></div>'+
+ '<section class="card" style="margin-top:15px"><h3 class="sectiontitle">Payments received</h3><div class="tablewrap"><table class="data"><thead><tr><th>Date</th><th>Amount</th><th>Method</th><th>Note</th><th></th></tr></thead><tbody>'+(payments.length?payments.map(x=>'<tr><td>'+dateLabel(x.date)+'</td><td class="amount positive">'+money(x.amount)+'</td><td>'+esc(x.method||'')+'</td><td>'+esc(x.note||'')+'</td><td><button class="btn danger small" data-del-pay="'+x.id+'">×</button></td></tr>').join(''):'<tr><td colspan="5">'+empty('No payments yet','Record a booking, down payment or instalment.')+'</td></tr>')+'</tbody></table></div></section>'+
+ '<section class="card" style="margin-top:15px"><div class="toolbar" style="justify-content:space-between"><h3 class="sectiontitle" style="margin:0">Client documents</h3><label class="btn teal small" for="docUpload">Upload documents</label><input id="docUpload" class="hidden" type="file" multiple></div><div class="smalltext" style="margin-top:8px">Files are stored on this device and included in the backup file.</div>'+
+ (docs.length?docs.map(x=>'<div class="document"><div><b>'+esc(x.name)+'</b><div class="smalltext">'+esc(x.type||'File')+' · '+Math.round((x.size||0)/1024)+' KB</div></div><div class="toolbar"><button class="btn light small" data-download-doc="'+x.id+'">Download</button><button class="btn danger small" data-del-doc="'+x.id+'">×</button></div></div>').join(''):empty('No documents uploaded','Add allotment letters, receipts, agreements or identity documents.'))+'</section>'+
+ '<div class="footer">Nouman’s App · Client receipts stay separate from the personal cashbook.</div>';
+ $('#docUpload').onchange=async e=>{for(const file of e.target.files){await put('documents',{id:id(),propertyId:pid,name:file.name,type:file.type,size:file.size,blob:file,lastModified:file.lastModified});}await showProperty(pid);};
+}
+function paymentForm(){
+ const p=window.cache.properties.find(x=>x.id===activeProperty);if(!p)return;
+ modal('Record property payment','<form id="paymentForm"><div class="formgrid"><div class="field"><label>Amount received (PKR)</label><input name="amount" type="number" min="1" required></div><div class="field"><label>Date</label><input name="date" type="date" value="'+today()+'" required></div><div class="field"><label>Payment method</label><select name="method"><option>Cash</option><option>Bank transfer</option><option>EasyPaisa</option><option>JazzCash</option><option>Cheque</option><option>Other</option></select></div><div class="field"><label>Reference</label><input name="reference" placeholder="Receipt or transaction number"></div><div class="field full"><label>Note</label><input name="note" placeholder="Booking, instalment or other"></div><div class="field full"><label><input type="checkbox" name="copyToPersonal" style="width:auto"> Also record as personal income (only if this amount belongs to Nouman)</label></div></div><div class="actions"><button type="button" class="btn light" data-action="close">Cancel</button><button class="btn teal">Save receipt</button></div></form>');
+ $('#paymentForm').onsubmit=async e=>{e.preventDefault();const o=Object.fromEntries(new FormData(e.currentTarget));const payment={id:id(),propertyId:p.id,amount:num(o.amount),date:o.date,method:o.method,reference:o.reference,note:o.note};await put('payments',payment);if(o.copyToPersonal==='on')await put('transactions',{id:id(),type:'income',date:o.date,amount:num(o.amount),method:o.method,category:'Property income',title:'Property receipt: '+p.client,person:p.client,account:o.reference||'',notes:'Copied from property file '+p.unit});closeModal();await showProperty(p.id);};
+}
+function bytesToBase64(blob){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result).split(',')[1]);r.onerror=()=>reject(r.error);r.readAsDataURL(blob);});}
+function base64ToBlob(b,type){const raw=atob(b),a=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)a[i]=raw.charCodeAt(i);return new Blob([a],{type:type||'application/octet-stream'});}
+function download(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
+async function exportBackup(){
+ const d=await data(),docs=[];for(const x of d.documents){docs.push({...x,blob:undefined,base64:await bytesToBase64(x.blob)});}
+ const payload={app:'Nouman’s App',version:1,exportedAt:new Date().toISOString(),openingBalance:num(window.openingBalance||0),transactions:d.transactions,properties:d.properties,payments:d.payments,documents:docs};
+ download(new Blob([JSON.stringify(payload)],{type:'application/json'}),'noumans-app-backup-'+today()+'.json');
+}
+async function importBackup(file){
+ const payload=JSON.parse(await file.text());if(payload.app!=='Nouman’s App'||!Array.isArray(payload.transactions)||!Array.isArray(payload.properties))throw Error('This does not look like a Nouman’s App backup.');
+ if(!confirm('Restore this backup? All current records on this device will be replaced.'))return;
+ for(const s of STORES)await req(s,'readwrite',st=>st.clear());
+ for(const key of ['transactions','properties','payments'])for(const x of payload[key]||[])await put(key,x);
+ for(const x of payload.documents||[]){const {base64,...meta}=x;await put('documents',{...meta,blob:base64ToBlob(base64,meta.type)});}
+ await setSetting('openingBalance',num(payload.openingBalance));window.openingBalance=num(payload.openingBalance);alert('Backup restored.');page='home';await render();
+}
+function printCash(){
+ const d=window.cache,rows=d.transactions.filter(t=>t.date===($('#cashDate')?.value||today())).sort((a,b)=>a.id.localeCompare(b.id));
+ const date=$('#cashDate')?.value||today(),before=d.transactions.filter(t=>t.date<date),during=rows,opening=num(window.openingBalance||0)+sum(before,t=>t.type==='income'?num(t.amount):-num(t.amount)),inc=sum(during.filter(x=>x.type==='income'),x=>num(x.amount)),out=sum(during.filter(x=>x.type==='expense'),x=>num(x.amount));
+ const w=window.open('','_blank');if(!w){alert('Allow popups to print this report.');return;}
+ w.document.write('<html><head><title>Daily cashbook</title><style>body{font:14px Arial;padding:30px;color:#172b38}h1{font-size:22px}table{width:100%;border-collapse:collapse;margin-top:20px}td,th{border-bottom:1px solid #ddd;padding:9px;text-align:left}.r{text-align:right}.sum{margin-top:22px;line-height:2}</style></head><body><h1>Nouman’s App, Daily cashbook</h1><p>'+dateLabel(date)+'</p><table><tr><th>Entry</th><th>Type</th><th>Method</th><th class="r">Amount</th></tr>'+rows.map(x=>'<tr><td>'+esc(x.title||x.category)+'</td><td>'+x.type+'</td><td>'+esc(x.method)+'</td><td class="r">'+money(x.amount)+'</td></tr>').join('')+'</table><div class="sum">Opening balance: '+money(opening)+'<br>Income: '+money(inc)+'<br>Expenses: '+money(out)+'<br><b>Closing balance: '+money(opening+inc-out)+'</b></div><p>Developed by Humam and Co.</p><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close();
+}
+async function printProperty(){
+ const d=await data(),p=d.properties.find(x=>x.id===activeProperty);if(!p)return;const pays=d.payments.filter(x=>x.propertyId===p.id),docs=d.documents.filter(x=>x.propertyId===p.id),received=paidFor(d,p),w=window.open('','_blank');if(!w){alert('Allow popups to print this report.');return;}
+ w.document.write('<html><head><title>Property file</title><style>body{font:14px Arial;padding:30px;color:#172b38}h1{font-size:22px}table{width:100%;border-collapse:collapse;margin:16px 0}td,th{border-bottom:1px solid #ddd;padding:9px;text-align:left}.label{color:#687983;width:180px}.box{border:1px solid #ddd;padding:15px;margin:15px 0;border-radius:8px}</style></head><body><h1>Nouman’s App, Property record</h1><div class="box"><h2>'+esc(p.client)+'</h2><p>'+esc(p.project||'')+' · '+esc(p.unit||'')+'</p><p>Phone: '+esc(p.phone||'')+'</p><p>Location: '+esc(p.location||'')+'</p><p>Total: '+money(p.total)+' | Received: '+money(received)+' | Remaining: '+money(Math.max(0,num(p.total)-received))+'</p></div><h3>Payment history</h3><table><tr><th>Date</th><th>Method</th><th>Note</th><th>Amount</th></tr>'+pays.map(x=>'<tr><td>'+dateLabel(x.date)+'</td><td>'+esc(x.method)+'</td><td>'+esc(x.note)+'</td><td>'+money(x.amount)+'</td></tr>').join('')+'</table><h3>Scheduled payments</h3><table><tr><th>Due date</th><th>Amount</th><th>Status</th></tr>'+(p.schedule||[]).map(x=>'<tr><td>'+dateLabel(x.date)+'</td><td>'+money(x.amount)+'</td><td>'+(x.paid?'Paid':'Scheduled')+'</td></tr>').join('')+'</table><h3>Attached documents</h3><p>'+docs.map(x=>esc(x.name)).join('<br>')+'</p><p>Notes: '+esc(p.notes||'')+'</p><p>Developed by Humam and Co.</p><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close();
+}
+document.addEventListener('click',async e=>{
+ const b=e.target.closest('button,[data-action],[data-page]');if(!b)return;
+ if(b.dataset.page){page=b.dataset.page;await render();return;}
+ if(b.dataset.action){const a=b.dataset.action;
+ if(a==='close')closeModal();
+ if(a==='transaction')transactionForm();
+ if(a==='property')propertyForm();
+ if(a==='save-opening'){const v=num($('#openingBalance').value);await setSetting('openingBalance',v);window.openingBalance=v;alert('Opening balance saved.');await render();}
+ if(a==='export')await exportBackup();
+ if(a==='import'){const f=$('#importFile').files[0];if(!f){alert('Choose a backup file first.');return;}try{await importBackup(f);}catch(err){alert('Could not restore backup: '+err.message);}}
+ if(a==='persist'){if(navigator.storage&&navigator.storage.persist){const ok=await navigator.storage.persist();alert(ok?'Storage protection granted by the browser.':'The browser did not grant storage protection. Keep regular backups.');}else alert('This browser does not support persistent storage requests.');}
+ if(a==='receive-payment')paymentForm();
+ if(a==='edit-property')propertyForm(window.cache.properties.find(x=>x.id===activeProperty));
+ if(a==='print-property')await printProperty();
+ if(a==='print-cash')printCash();
+ if(a==='back-properties'){activeProperty=null;page='properties';await render();}
+ if(a==='daily-close'){const dt=$('#cashDate').value;updateDailySummary(window.cache,dt);}
+ }
+ if(b.dataset.editT){const t=await get('transactions',b.dataset.editT);transactionForm(t);}
+ if(b.dataset.delT){if(confirm('Delete this personal entry?')){await del('transactions',b.dataset.delT);await render();}}
+ if(b.dataset.viewP)await showProperty(b.dataset.viewP);
+ if(b.dataset.delPay){if(confirm('Delete this property receipt?')){await del('payments',b.dataset.delPay);await showProperty(activeProperty);}}
+ if(b.dataset.downloadDoc){const doc=await get('documents',b.dataset.downloadDoc);if(doc)download(doc.blob,doc.name);}
+ if(b.dataset.delDoc){if(confirm('Delete this document?')){await del('documents',b.dataset.delDoc);await showProperty(activeProperty);}}
+});
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-page]');if(b){page=b.dataset.page;render();}});
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-del-t]');if(b)e.stopPropagation();});
+(async()=>{
+ try{db=await openDB();window.openingBalance=num(await setting('openingBalance',0));if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});await render();
+ if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
+ }catch(e){$('#app').innerHTML='<div class="card"><h2>Storage could not be opened</h2><p>Please open this app in Safari or another modern browser. Details: '+esc(e.message)+'</p></div>';}
+})();
+})();
+</script>
+</body>
+</html>
